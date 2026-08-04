@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abhishek Fibre Industries</title>
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="" crossorigin="anonymous">
+
+  <style>
+    /* Basic reset & fonts */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #0b0b0b; color: #fff; line-height: 1.6; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: linear-gradient(180deg,#000 0%, #0b0b0b 100%);
+      border-bottom: 2px solid #ffd700;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { color: #ff3700; text-align: left; }
+    .brand h1 { font-size: 20px; letter-spacing: 1px; margin-bottom: 2px; color: #ffd700; }
+    .brand p { font-size: 12px; color: #cfcfcf; }
+
+    nav { display:flex; gap:16px; align-items:center; }
+    nav a { color: #ffd700; text-decoration: none; font-weight:700; transition: .25s; }
+    nav a:hover { color: #fff; }
+
+    /* Hero + slider */
+    .hero {
+      position: relative;
+      height: calc(100vh - 72px);
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .slider-img {
+      position: absolute;
+      inset: 0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      filter: brightness(.45);
+      transition: opacity .6s ease-in-out;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 24px;
+      max-width: 1100px;
+    }
+    .hero h1 { color: #ffd700; font-size: clamp(26px,6vw,56px); margin-bottom:10px; }
+    .hero h2 { color:#fff; font-size: clamp(16px,2.2vw,24px); margin-bottom:8px; }
+    .hero p { color:#ddd; font-size: clamp(14px,1.6vw,20px); margin-bottom:18px; }
+
+    /* CTA */
+    .cta { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+    .btn {
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 20px; border-radius:999px; text-decoration:none; font-weight:700;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn-phone { background:#ffd700; color:#000; }
+    .btn-phone:hover { transform: translateY(-3px); box-shadow:0 8px 20px rgba(255,215,0,.12); }
+
+    .btn-whatsapp {
+      width:56px; height:56px; display:inline-flex; align-items:center; justify-content:center;
+      background:#25D366; color:#fff; border-radius:50%; font-size:22px; text-decoration:none;
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+    .btn-whatsapp:hover { transform: scale(1.08); background:#128C7E; }
+
+    /* Sections */
+    section { padding: 60px 6%; }
+    section h2 { text-align:center; color:#ffd700; margin-bottom:26px; font-size:28px; }
+
+    #about p { max-width:900px; margin: 0 auto; color:#ddd; font-size:16px; text-align:center; }
+
+    /* Products grid */
+    #products { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:22px; }
+    .card {
+      background: linear-gradient(180deg,#171717,#1e1e1e);
+      border: 2px solid #ffd700; padding:20px; border-radius:12px; text-align:center;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover { transform: translateY(-8px); box-shadow:0 16px 40px rgba(255,215,0,.08); }
+    .card h3 { color:#ffd700; margin-bottom:10px; font-size:18px; }
+    .card p { color:#ddd; font-size:14px; }
+
+    /* Contact */
+    #contact .contact-info { max-width:820px; margin:0 auto 20px; text-align:center; color:#ddd; font-size:16px; }
+    .map { max-width:900px; margin: 20px auto 0; border-radius:12px; overflow:hidden; border:2px solid #ffd700; height:420px; }
+
+    footer { background:#000; color:#aaa; padding:20px; text-align:center; margin-top:40px; }
+
+    /* Floating whatsapp */
+    .whatsapp-float {
+      position: fixed; right:20px; bottom:20px; width:64px; height:64px; border-radius:50%;
+      background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center;
+      font-size:28px; z-index:9999; box-shadow:0 8px 26px rgba(0,0,0,.35); text-decoration:none;
+    }
+    .whatsapp-float:hover { transform: scale(1.06); background:#128C7E; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 12px; }
+      .brand h1 { font-size:16px; }
+      .hero { height: 60vh; min-height:340px; }
+      .map { height: 300px; }
+      .cta { gap:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="brand" aria-label="Company">
+      <h1>ABHISHEK FIBRE INDUSTRIES</h1>
+      <p>Manufacturing All Types Of Fibre Glass & Sirimica Doors</p>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero + Slider -->
+  <main>
+    <section id="home" class="hero" aria-labelledby="home-heading">
+      <!-- slider images (absolute) -->
+      <img id="slide0" class="slider-img" src="banner.jpg" alt="Fibre door sample image" style="opacity:1" />
+      <img id="slide1" class="slider-img" src="banner2.jpg" alt="Fibre product image" style="opacity:0" />
+      <img id="slide2" class="slider-img" src="banner3.jpg" alt="Manufacturing image" style="opacity:0" />
+
+      <div class="hero-content">
+        <h1 id="home-heading">ABHISHEK FIBRE INDUSTRIES</h1>
+        <h2>Premium, Durable & Waterproof FRP Doors</h2>
+        <p>Stylish designs • Termite-proof • Long-lasting craftsmanship</p>
+
+        <div class="cta" role="group" aria-label="Primary actions">
+          <a class="btn btn-phone" href="tel:+917302594188"><i class="fa-solid fa-phone"></i> Call Now</a>
+          <a class="btn-whatsapp" href="https://wa.me/917302594188" target="_blank" rel="noopener" title="WhatsApp us" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </a>
+          <a class="btn" style="background:#333;color:#ffd700" href="#products"><i class="fa-solid fa-door-open"></i> View Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Us</h2>
+      <p>
+        Abhishek Fibre Industries is a trusted manufacturer of premium FRP (Fibre Reinforced Polymer) doors.
+        We provide stylish, durable, waterproof and termite-proof doors with modern designs and expert craftsmanship.
+        Our doors are built for longevity and low maintenance.
+      </p>
+    </section>
+
+    <!-- Products -->
+    <section id="products" aria-labelledby="products-heading">
+      <h2 id="products-heading">Our Products</h2>
+      <div class="grid">
+        <div class="card"><h3>All Types of Sirimica Doors</h3><p>Premium & modern Sirimica design collection.</p></div>
+        <div class="card"><h3>Main Doors</h3><p>Designer Fibre main doors for homes and offices.</p></div>
+        <div class="card"><h3>Double Doors</h3><p>Luxury double door collection for grand entrances.</p></div>
+        <div class="card"><h3>Bathroom Doors</h3><p>100% waterproof & long-lasting FRP bathroom doors.</p></div>
+        <div class="card"><h3>Door Frames</h3><p>Ultra-strong FRP & fibre door frames, precisely engineered.</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Us</h2>
+
+      <div class="contact-info">
+        <p><strong>Surendra Yadav:</strong> <a href="tel:+917302594188" style="color:#ffd700">7302594188</a></p>
+        <p><strong>Suresh Yadav:</strong> <a href="tel:+918169620165" style="color:#ffd700">8169620165</a></p>
+        <p><strong>Address:</strong><br>Pooja Industries Estate, Near Om Kaleshwar Mandir,<br>Tulshet Pada, Bhandup (West), Mumbai - 400078</p>
+      </div>
+
+      <div class="map" role="region" aria-label="Company location map">
+        <!-- Google maps embed by query (replace as needed with full embed link) -->
+        <iframe
+          src="https://maps.google.com/maps?q=Pooja%20Industries%20Estate%20Near%20Om%20Kaleshwar%20Mandir%20Tulshet%20Pada%20Bhandup%20West%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/917302594188" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <p>© 2026 Abhishek Fibre Industries. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Slider JavaScript -->
+  <script>
+    // Simple crossfade slider
+    (function(){
+      const imgs = [
+        document.getElementById('slide0'),
+        document.getElementById('slide1'),
+        document.getElementById('slide2')
+      ];
+      let idx = 0;
+      const len = imgs.length;
+      // ensure only first visible at start
+      imgs.forEach((el,i)=> el.style.opacity = i===0 ? '1' : '0');
+
+      setInterval(()=> {
+        const prev = idx;
+        idx = (idx + 1) % len;
+        imgs[prev].style.opacity = '0';
+        imgs[idx].style.opacity = '1';
+      }, 3500);
+    })();
+  </script>
+
+</body>
+</html>
